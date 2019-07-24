@@ -17,12 +17,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //Play Button: Go to GameActivity
+        //Play Button: Go to ChooseCategoryActivity
         Button playGameButton = (Button) findViewById(R.id.playGameButton);
         playGameButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent goToNextActivity = new Intent(getApplicationContext(), ChooseCategoryActivity.class);
-                startActivity(goToNextActivity);
+                Intent categoryActivity = new Intent(getApplicationContext(), ChooseCategoryActivity.class);
+                startActivity(categoryActivity);
+            }
+        });
+
+        //Highscore Button: Go to HighscoreActivity
+        Button highscoreButton = (Button) findViewById(R.id.highscoreButton);
+        highscoreButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent highscoreActivity = new Intent(getApplicationContext(), HighscoreActivity.class);
+                startActivity(highscoreActivity);
             }
         });
 
