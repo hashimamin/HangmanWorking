@@ -1,0 +1,20 @@
+TODO:
+
+• Save state of activities (save and resume game)
+• Add Up button to Child Activities
+• Add Menu to GameActivity: Restart, Quiz
+• Add Menu to HighscoreActivity: Clear Scores
+• Use at least 2 fragments
+• Use at least 2 landscape views
+• Implement Gesture (quit game with confirm dialog)
+
+• Add Icon
+• Add sounds
+• Add any effects/animations to the game to enhance (example: stars exploding with you win, stuff moving, etc)
+• Change Theme colors (navigation bar, buttons) to give the app more unique feel
+
+• Add more categories
+• Add some 3 letter and 5 letter words to DB (current categories already have 4 letter words)
+• Add some names/times to highscores table in DB
+• Sensor: shake causes hangman to animate
+• Change hangman images to draw view with animations
