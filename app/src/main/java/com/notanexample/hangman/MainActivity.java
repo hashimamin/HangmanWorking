@@ -35,6 +35,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //SettingsActivity Button: Go to SettingsActivity
+        Button settingsButton = (Button) findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent settingsActivity = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(settingsActivity);
+            }
+        });
+
         //Quit Button: Quits app
         Button quitButton = (Button) findViewById(R.id.quitButton);
         quitButton.setOnClickListener(new View.OnClickListener() {

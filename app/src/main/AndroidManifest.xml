@@ -10,12 +10,13 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SettingsActivity"></activity>
         <activity
             android:name=".HighscoreActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ChooseCategoryActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".GameActivity"
             android:label="@string/title_activity_game"
