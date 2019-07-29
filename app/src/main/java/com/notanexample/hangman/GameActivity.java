@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.text.Html;
 import android.text.InputType;
@@ -22,6 +23,7 @@ import java.util.TimerTask;
 
 public class GameActivity extends AppCompatActivity {
 
+    CoordinatorLayout parentLayout;
     Game gameState;
     Timer timer;
     private static DecimalFormat timerFormat = new DecimalFormat("#.#");
@@ -30,6 +32,10 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        //set background color of activity
+        parentLayout = findViewById(R.id.parentLayout);
+        setBackgroundColor();
 
         // Setup game
         int category = getIntent().getIntExtra("categoryId", 1);
@@ -114,7 +120,7 @@ public class GameActivity extends AppCompatActivity {
 
                     SharedPreferences.Editor editor = settings.edit();
                     editor.putInt("wins", wins);
-                    editor.commit();
+                    editor.apply();
 
                     timer.cancel();
                     final double seconds = ((System.currentTimeMillis() - gameState.startTime) / 1000) % 60;
@@ -186,5 +192,25 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    private void setBackgroundColor() {
+        SharedPreferences settings = getSharedPreferences("UserInfo", 0);
+        String color = settings.getString("background", "white");
+
+        switch (color) {
+            case "white":
+                parentLayout.setBackgroundColor(Color.WHITE);
+                break;
+            case "red":
+                parentLayout.setBackgroundColor(Color.RED);
+                break;
+            case "green":
+                parentLayout.setBackgroundColor(Color.GREEN);
+                break;
+            case "blue":
+                parentLayout.setBackgroundColor(Color.BLUE);
+                break;
+        }
+
+    }
 
 }

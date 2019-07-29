@@ -1,8 +1,11 @@
 package com.notanexample.hangman;
 
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,13 +21,16 @@ import java.util.Comparator;
 import java.util.List;
 
 public class HighscoreActivity extends AppCompatActivity {
+    ConstraintLayout parentLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
 
-
+        //set background color of activity
+        parentLayout = findViewById(R.id.parentLayout);
+        setBackgroundColor();
 
         ArrayList<Highscore> highscores = DatabaseManager.getInstance(getApplicationContext()).getHighscores();
 
@@ -103,6 +109,27 @@ public class HighscoreActivity extends AppCompatActivity {
         public int getItemCount(){
             return mHighscores.size();
         }
+    }
+
+    private void setBackgroundColor() {
+        SharedPreferences settings = getSharedPreferences("UserInfo", 0);
+        String color = settings.getString("background", "white");
+
+        switch (color) {
+            case "white":
+                parentLayout.setBackgroundColor(Color.WHITE);
+                break;
+            case "red":
+                parentLayout.setBackgroundColor(Color.RED);
+                break;
+            case "green":
+                parentLayout.setBackgroundColor(Color.GREEN);
+                break;
+            case "blue":
+                parentLayout.setBackgroundColor(Color.BLUE);
+                break;
+        }
+
     }
 
 }
