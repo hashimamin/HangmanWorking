@@ -210,7 +210,10 @@ public class GameActivity extends AppCompatActivity {
                 parentLayout.setBackgroundColor(Color.BLUE);
                 break;
         }
-
     }
-
+   
+    //Restart
+    public void restartActivity(View view) {
+        Restart.restartApp(this);
+    }
 }
