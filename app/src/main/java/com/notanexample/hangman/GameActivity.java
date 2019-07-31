@@ -26,6 +26,7 @@ import android.app.AlertDialog;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -43,12 +44,24 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
 
+
         // Setup game
         int category = getIntent().getIntExtra("categoryId", 1);
         int difficulty = getIntent().getIntExtra("difficulty", 0);
         String word = DatabaseManager.getInstance(getApplicationContext()).getRandomWord(category, difficulty);
         gameState = new Game(word);
 
+        if (savedInstanceState != null) {
+            gameState.correctLetters = savedInstanceState.getInt("correctLetters");
+            gameState.attempt = savedInstanceState.getInt("attempt");
+            gameState.word = savedInstanceState.getString("word");
+            gameState.startTime = savedInstanceState.getDouble("startTime");
+            //Character[] charArray = Arrays.asList(savedInstanceState.getSerializable("lettersGuessed"));
+            //for (int i = 0; i < charArray.length; i++) {
+
+                //findViewById(R.id.aButton).setClickable(false);
+            //}
+        }
 
         // Set word letters to underlined blanks
         String blankHTML = "<u>&nbsp;&nbsp;&nbsp;</u>&nbsp;";
@@ -220,6 +233,11 @@ public class GameActivity extends AppCompatActivity {
 
         if(isNightMode) {
             setTheme(R.style.DarkTheme);
+            TextView wordTextView = findViewById(R.id.wordText);
+            wordTextView.setTextColor(Color.WHITE);
+
+            TextView timerTextView = findViewById(R.id.timerText);
+            timerTextView.setTextColor(Color.WHITE);
         }
         else
             setTheme(R.style.AppTheme);
@@ -232,7 +250,20 @@ public class GameActivity extends AppCompatActivity {
         Restart.restartApp(this);
     }
 
+    public void onDestroy() {
+        timer.cancel();
+        super.onDestroy();
+    }
 
+    public void onSaveInstanceState(Bundle b) {
+        super.onSaveInstanceState(b);
+        b.putInt("correctLetters", gameState.correctLetters);
+        b.putInt("attempt", gameState.attempt);
+        b.putString("word", gameState.word);
+        b.putDouble("startTime", gameState.startTime);
+
+        b.putSerializable("lettersGuessed", gameState.lettersGuessed.toArray());
+    }
 
 
 }

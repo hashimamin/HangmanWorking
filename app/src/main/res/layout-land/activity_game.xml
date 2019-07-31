@@ -341,30 +341,28 @@
 
     <TextView
         android:id="@+id/wordText"
-        android:layout_width="416dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
+        android:layout_width="308dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         android:textAlignment="center"
         android:textColor="?attr/textColor"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/hangmanView"
-        app:layout_constraintTop_toBottomOf="@+id/timerText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/timerText"
-        android:layout_width="218dp"
-        android:layout_height="35dp"
+        android:layout_width="95dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:textAlignment="textEnd"
         android:textColor="?attr/textColor"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hangmanView"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
