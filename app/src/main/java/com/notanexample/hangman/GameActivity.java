@@ -21,16 +21,12 @@ import java.text.DecimalFormat;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-
 public class GameActivity extends AppCompatActivity {
 
     CoordinatorLayout parentLayout;
     Game gameState;
     Timer timer;
-    private static DecimalFormat timerFormat = new DecimalFormat("#.#");
+    private static DecimalFormat timerFormat = new DecimalFormat("0.00");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +39,7 @@ public class GameActivity extends AppCompatActivity {
 
         // Setup game
         int category = getIntent().getIntExtra("categoryId", 1);
-        int difficulty = getIntent().getIntExtra("difficulty", 3);
+        int difficulty = getIntent().getIntExtra("difficulty", 0);
         String word = DatabaseManager.getInstance(getApplicationContext()).getRandomWord(category, difficulty);
         gameState = new Game(word);
 
@@ -72,7 +68,7 @@ public class GameActivity extends AppCompatActivity {
                     }
                 });
             }
-        }, 0, 100);
+        }, 0, 75);
 
 
     }
@@ -156,18 +152,10 @@ public class GameActivity extends AppCompatActivity {
                 gameState.attempt++;
 
                 // Update hangman graphic
-                ImageView hangmanImageView = (ImageView) findViewById(R.id.hangmanImageView);
-                if (gameState.attempt == 1) {
-                    hangmanImageView.setImageResource(R.drawable.hangman_1);
-                } else if (gameState.attempt == 2) {
-                    hangmanImageView.setImageResource(R.drawable.hangman_2);
-                } else if (gameState.attempt == 3) {
-                    hangmanImageView.setImageResource(R.drawable.hangman_3);
-                } else if (gameState.attempt == 4) {
-                    hangmanImageView.setImageResource(R.drawable.hangman_4);
-                } else if (gameState.attempt >= 5) {
-                    hangmanImageView.setImageResource(R.drawable.hangman_5);
+                HangmanView hangmanView = findViewById(R.id.hangmanView);
+                hangmanView.setAttempts(gameState.attempt);
 
+                if (gameState.attempt >= 5) {
                     // Game Over: You lose!
 
                     // add +1 to loses
@@ -215,35 +203,9 @@ public class GameActivity extends AppCompatActivity {
                 break;
         }
     }
-    
-   @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_toolbar, menu);
-        return true;
+   
+    //Restart
+    public void restartActivity(View view) {
+        Restart.restartApp(this);
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.restart_action:
-                Restart.restartApp(this);
-                return true;
-
-            case R.id.resume_action:
-                return true;
-
-            case R.id.save_action:
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
-  
 }

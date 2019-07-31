@@ -79,8 +79,14 @@ public class DatabaseManager {
         return categories;
     }
 
-    String getRandomWord(int categoryId, int length) {
-        Cursor queryCursor = db.rawQuery("SELECT * FROM Words WHERE categoryId = "+categoryId+" AND length(word) = "+length+" ORDER BY RANDOM() LIMIT 1;", null);
+    String getRandomWord(int categoryId, int difficulty) {
+        String length = "<= 3"; //easy
+        if (difficulty == 2) { //hard
+            length = "> 4";
+        } else if (difficulty == 1) { //normal
+            length = "= 4";
+        }
+        Cursor queryCursor = db.rawQuery("SELECT * FROM Words WHERE categoryId = "+categoryId+" AND length(word) "+length+" ORDER BY RANDOM() LIMIT 1;", null);
 
         if (queryCursor.getCount() == 0) {
             return backupWord;

@@ -65,8 +65,8 @@ public class ChooseCategoryActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                 intent.putExtra("category", categories[categorySpinner.getSelectedItemPosition()].id);
 
-                //Easy: 3, Normal: 4, Hard: 5
-                intent.putExtra("difficulty", (difficultySpinner.getSelectedItemPosition() + 3));
+                //Easy: 0, Normal: 1, Hard: 2
+                intent.putExtra("difficulty", (difficultySpinner.getSelectedItemPosition()));
                 startActivity(intent);
                 finish();
             }
