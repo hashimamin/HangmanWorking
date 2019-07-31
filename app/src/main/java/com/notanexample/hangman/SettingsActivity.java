@@ -52,18 +52,20 @@ public class SettingsActivity extends AppCompatActivity {
         SharedPreferences settings = getSharedPreferences("UserInfo", 0);
         String color = settings.getString("background", "white");
 
+        getWindow().setNavigationBarColor(Color.parseColor("#341f97"));
+
         switch (color) {
             case "white":
-                parentLayout.setBackgroundColor(Color.WHITE);
+                parentLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 break;
             case "red":
-                parentLayout.setBackgroundColor(Color.RED);
+                parentLayout.setBackgroundColor(Color.parseColor("#ff6b6b"));
                 break;
             case "green":
-                parentLayout.setBackgroundColor(Color.GREEN);
+                parentLayout.setBackgroundColor(Color.parseColor("#1dd1a1"));
                 break;
             case "blue":
-                parentLayout.setBackgroundColor(Color.BLUE);
+                parentLayout.setBackgroundColor(Color.parseColor("#48dbfb"));
                 break;
         }
 
