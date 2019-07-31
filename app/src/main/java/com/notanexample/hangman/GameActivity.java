@@ -204,8 +204,33 @@ public class GameActivity extends AppCompatActivity {
         }
     }
    
-    //Restart
-    public void restartActivity(View view) {
-        Restart.restartApp(this);
-    }
+    @Override
+     public boolean onCreateOptionsMenu(Menu menu) {
+    
+         MenuInflater menuInflater = getMenuInflater();
+         menuInflater.inflate(R.menu.menu_toolbar, menu);
+         return true;
+     }
+    
+     @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+         switch (item.getItemId()) {
+    
+             case R.id.restart_action:
+                 Restart.restartApp(this);
+                 return true;
+    
+             case R.id.resume_action:
+                 return true;
+    
+             case R.id.save_action:
+                 return true;
+    
+             default:
+                 // If we got here, the user's action was not recognized.
+                 // Invoke the superclass to handle it.
+                 return super.onOptionsItemSelected(item);
+    
+         }
+     }
 }
