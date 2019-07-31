@@ -80,29 +80,18 @@ public class ChooseCategoryActivity extends AppCompatActivity {
         SharedPreferences settings = getSharedPreferences("UserInfo", 0);
         String color = settings.getString("background", "white");
 
-        getWindow().setNavigationBarColor(Color.parseColor("#341f97"));
-
-        ArrayList<View> layoutButtons = parentLayout.getTouchables();
-        for (View v : layoutButtons) {
-            if (v instanceof Button) {
-                ((Button) v).setBackgroundColor(Color.parseColor("#5f27cd"));
-                ((Button) v).setHighlightColor(Color.parseColor("#341f97"));
-                ((Button) v).setTextColor(Color.parseColor("#FFFFFF"));
-            }
-        }
-
         switch (color) {
             case "white":
-                parentLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                parentLayout.setBackgroundColor(Color.WHITE);
                 break;
             case "red":
-                parentLayout.setBackgroundColor(Color.parseColor("#ff6b6b"));
+                parentLayout.setBackgroundColor(Color.RED);
                 break;
             case "green":
-                parentLayout.setBackgroundColor(Color.parseColor("#1dd1a1"));
+                parentLayout.setBackgroundColor(Color.GREEN);
                 break;
             case "blue":
-                parentLayout.setBackgroundColor(Color.parseColor("#48dbfb"));
+                parentLayout.setBackgroundColor(Color.BLUE);
                 break;
         }
 

@@ -5,60 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsActivity"
-    android:id="@+id/parentLayout">
+    android:id="@+id/parentLayout"
+    android:background="?attr/backgroundColor">
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="73dp"
-        android:id="@+id/themeChoices"
-        android:layout_below="@+id/themeSetting"
-        android:layout_marginLeft="15dp"
-        >
-
-        <RadioButton
-            android:id="@+id/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="onRadioButtonClicked"
-            android:text="White" />
-
-        <RadioButton
-            android:id="@+id/red"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="onRadioButtonClicked"
-            android:text="Red" />
-
-        <RadioButton
-            android:id="@+id/green"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="onRadioButtonClicked"
-            android:text="Green" />
-
-        <RadioButton
-            android:id="@+id/blue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="onRadioButtonClicked"
-            android:text="Blue" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/themeSetting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/settings"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:text="Select your background color"
-        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/settings"
@@ -67,6 +16,43 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="Settings"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textColor="?attr/textColor"/>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:cardBackgroundColor="?attr/cardBackground"
+        android:layout_below="@+id/settings">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nightModeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enable Dark Mode"
+                android:textStyle="bold"
+                android:textColor="?attr/textColor"/>
+
+            <Switch
+                android:id="@+id/nightModeSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Night Mode"
+                android:textColor="?attr/textColor"/>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

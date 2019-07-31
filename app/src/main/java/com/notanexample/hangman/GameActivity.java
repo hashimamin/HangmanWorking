@@ -1,17 +1,16 @@
 package com.notanexample.hangman;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.text.Html;
 import android.text.InputType;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,25 +20,20 @@ import android.widget.TextView;
 import android.app.AlertDialog;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameActivity extends AppCompatActivity {
-
-    CoordinatorLayout parentLayout;
     Game gameState;
     Timer timer;
     private static DecimalFormat timerFormat = new DecimalFormat("0.00");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        nightMode();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
-        //set background color of activity
-        parentLayout = findViewById(R.id.parentLayout);
-        setBackgroundColor();
 
         // Setup game
         int category = getIntent().getIntExtra("categoryId", 1);
@@ -75,6 +69,31 @@ public class GameActivity extends AppCompatActivity {
         }, 0, 75);
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.appbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_quit:
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+                return true;
+
+            case R.id.action_restart:
+                restartActivity();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
@@ -159,8 +178,8 @@ public class GameActivity extends AppCompatActivity {
                 HangmanView hangmanView = findViewById(R.id.hangmanView);
                 hangmanView.setAttempts(gameState.attempt);
 
-                if (gameState.attempt >= 5) {
                     // Game Over: You lose!
+                if(gameState.attempt >= 5) {
 
                     // add +1 to loses
                     SharedPreferences settings = getSharedPreferences("UserInfo", 0);
@@ -169,7 +188,7 @@ public class GameActivity extends AppCompatActivity {
 
                     SharedPreferences.Editor editor = settings.edit();
                     editor.putInt("loses", loses);
-                    editor.commit();
+                    editor.apply();
 
                     timer.cancel();
 
@@ -188,65 +207,21 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    private void setBackgroundColor() {
+    public void nightMode() {
         SharedPreferences settings = getSharedPreferences("UserInfo", 0);
-        String color = settings.getString("background", "white");
+        boolean isNightMode = settings.getBoolean("nightmode", false);
 
-        getWindow().setNavigationBarColor(Color.parseColor("#341f97"));
-
-        ArrayList<View> layoutButtons = parentLayout.getTouchables();
-        for (View v : layoutButtons) {
-            if (v instanceof Button) {
-                ((Button) v).setBackgroundColor(Color.parseColor("#222f3e"));
-                ((Button) v).setHighlightColor(Color.parseColor("#576574"));
-                ((Button) v).setTextColor(Color.parseColor("#FFFFFF"));
-            }
+        if(isNightMode) {
+            setTheme(R.style.DarkTheme);
         }
-
-        switch (color) {
-            case "white":
-                parentLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                break;
-            case "red":
-                parentLayout.setBackgroundColor(Color.parseColor("#ff6b6b"));
-                break;
-            case "green":
-                parentLayout.setBackgroundColor(Color.parseColor("#1dd1a1"));
-                break;
-            case "blue":
-                parentLayout.setBackgroundColor(Color.parseColor("#48dbfb"));
-                break;
-        }
+        else
+            setTheme(R.style.AppTheme);
 
     }
+
    
-    @Override
-     public boolean onCreateOptionsMenu(Menu menu) {
-    
-         MenuInflater menuInflater = getMenuInflater();
-         menuInflater.inflate(R.menu.menu_game, menu);
-         return true;
-     }
-    
-     @Override
-     public boolean onOptionsItemSelected(MenuItem item) {
-         switch (item.getItemId()) {
-    
-             case R.id.restart_action:
-                 Restart.restartApp(this);
-                 return true;
-    
-             case R.id.resume_action:
-                 return true;
-    
-             case R.id.save_action:
-                 return true;
-    
-             default:
-                 // If we got here, the user's action was not recognized.
-                 // Invoke the superclass to handle it.
-                 return super.onOptionsItemSelected(item);
-    
-         }
-     }
+    //Restart
+    public void restartActivity() {
+        Restart.restartApp(this);
+    }
 }

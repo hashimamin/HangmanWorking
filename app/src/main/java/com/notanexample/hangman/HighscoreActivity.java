@@ -21,16 +21,13 @@ import java.util.Comparator;
 import java.util.List;
 
 public class HighscoreActivity extends AppCompatActivity {
-    ConstraintLayout parentLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        nightMode();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
-
-        //set background color of activity
-        parentLayout = findViewById(R.id.parentLayout);
-        setBackgroundColor();
 
         ArrayList<Highscore> highscores = DatabaseManager.getInstance(getApplicationContext()).getHighscores();
 
@@ -111,8 +108,9 @@ public class HighscoreActivity extends AppCompatActivity {
         }
     }
 
-    private void setBackgroundColor() {
+    public void nightMode() {
         SharedPreferences settings = getSharedPreferences("UserInfo", 0);
+<<<<<<< Updated upstream
         String color = settings.getString("background", "white");
 
         getWindow().setNavigationBarColor(Color.parseColor("#341f97"));
@@ -130,7 +128,15 @@ public class HighscoreActivity extends AppCompatActivity {
             case "blue":
                 parentLayout.setBackgroundColor(Color.parseColor("#48dbfb"));
                 break;
+=======
+        boolean isNightMode = settings.getBoolean("nightmode", false);
+
+        if(isNightMode) {
+            setTheme(R.style.DarkTheme);
+>>>>>>> Stashed changes
         }
+        else
+            setTheme(R.style.AppTheme);
 
     }
 

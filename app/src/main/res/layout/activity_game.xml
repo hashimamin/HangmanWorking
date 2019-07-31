@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="?attr/backgroundColor"
     tools:context=".GameActivity"
     android:id="@+id/parentLayout">
 
@@ -30,7 +30,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/gButton"
             app:layout_constraintEnd_toStartOf="@+id/bButton"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/bButton"
@@ -41,7 +43,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/hButton"
             app:layout_constraintEnd_toStartOf="@+id/cButton"
-            app:layout_constraintStart_toEndOf="@+id/aButton" />
+            app:layout_constraintStart_toEndOf="@+id/aButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/cButton"
@@ -52,7 +56,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/iButton"
             app:layout_constraintEnd_toStartOf="@+id/dButton"
-            app:layout_constraintStart_toEndOf="@+id/bButton" />
+            app:layout_constraintStart_toEndOf="@+id/bButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/dButton"
@@ -63,7 +69,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/jButton"
             app:layout_constraintEnd_toStartOf="@+id/eButton"
-            app:layout_constraintStart_toEndOf="@+id/cButton" />
+            app:layout_constraintStart_toEndOf="@+id/cButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/eButton"
@@ -74,7 +82,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/kButton"
             app:layout_constraintEnd_toStartOf="@+id/fButton"
-            app:layout_constraintStart_toEndOf="@+id/dButton" />
+            app:layout_constraintStart_toEndOf="@+id/dButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/fButton"
@@ -86,7 +96,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/lButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/eButton" />
+            app:layout_constraintStart_toEndOf="@+id/eButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/gButton"
@@ -98,7 +110,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/mButton"
             app:layout_constraintEnd_toStartOf="@+id/hButton"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/hButton"
@@ -109,7 +123,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/nButton"
             app:layout_constraintEnd_toStartOf="@+id/iButton"
-            app:layout_constraintStart_toEndOf="@+id/gButton" />
+            app:layout_constraintStart_toEndOf="@+id/gButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/iButton"
@@ -120,7 +136,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/oButton"
             app:layout_constraintEnd_toStartOf="@+id/jButton"
-            app:layout_constraintStart_toEndOf="@+id/hButton" />
+            app:layout_constraintStart_toEndOf="@+id/hButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/jButton"
@@ -131,7 +149,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/pButton"
             app:layout_constraintEnd_toStartOf="@+id/kButton"
-            app:layout_constraintStart_toEndOf="@+id/iButton" />
+            app:layout_constraintStart_toEndOf="@+id/iButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/kButton"
@@ -142,7 +162,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/qButton"
             app:layout_constraintEnd_toStartOf="@+id/lButton"
-            app:layout_constraintStart_toEndOf="@+id/jButton" />
+            app:layout_constraintStart_toEndOf="@+id/jButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/lButton"
@@ -154,7 +176,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/rButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/kButton" />
+            app:layout_constraintStart_toEndOf="@+id/kButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/mButton"
@@ -166,7 +190,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/sButton"
             app:layout_constraintEnd_toStartOf="@+id/nButton"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/nButton"
@@ -177,7 +203,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/tButton"
             app:layout_constraintEnd_toStartOf="@+id/oButton"
-            app:layout_constraintStart_toEndOf="@+id/mButton" />
+            app:layout_constraintStart_toEndOf="@+id/mButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/oButton"
@@ -188,7 +216,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/uButton"
             app:layout_constraintEnd_toStartOf="@+id/pButton"
-            app:layout_constraintStart_toEndOf="@+id/nButton" />
+            app:layout_constraintStart_toEndOf="@+id/nButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/pButton"
@@ -199,7 +229,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/vButton"
             app:layout_constraintEnd_toStartOf="@+id/qButton"
-            app:layout_constraintStart_toEndOf="@+id/oButton" />
+            app:layout_constraintStart_toEndOf="@+id/oButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/qButton"
@@ -210,7 +242,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/wButton"
             app:layout_constraintEnd_toStartOf="@+id/rButton"
-            app:layout_constraintStart_toEndOf="@+id/pButton" />
+            app:layout_constraintStart_toEndOf="@+id/pButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/rButton"
@@ -222,7 +256,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/xButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/qButton" />
+            app:layout_constraintStart_toEndOf="@+id/qButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/sButton"
@@ -234,7 +270,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/yButton"
             app:layout_constraintEnd_toStartOf="@+id/tButton"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/tButton"
@@ -245,7 +283,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/zButton"
             app:layout_constraintEnd_toStartOf="@+id/uButton"
-            app:layout_constraintStart_toEndOf="@+id/sButton" />
+            app:layout_constraintStart_toEndOf="@+id/sButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/uButton"
@@ -257,7 +297,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/vButton"
-            app:layout_constraintStart_toEndOf="@+id/tButton" />
+            app:layout_constraintStart_toEndOf="@+id/tButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/vButton"
@@ -269,7 +311,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/wButton"
-            app:layout_constraintStart_toEndOf="@+id/uButton" />
+            app:layout_constraintStart_toEndOf="@+id/uButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/wButton"
@@ -281,7 +325,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/xButton"
-            app:layout_constraintStart_toEndOf="@+id/vButton" />
+            app:layout_constraintStart_toEndOf="@+id/vButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/xButton"
@@ -294,7 +340,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/wButton" />
+            app:layout_constraintStart_toEndOf="@+id/wButton"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/yButton"
@@ -307,7 +355,9 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/zButton"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <Button
             android:id="@+id/zButton"
@@ -319,7 +369,9 @@
             android:text="Z"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="?attr/textColor"
+            android:background="?attr/cardBackground"/>
 
         <TextView
             android:id="@+id/wordText"
@@ -327,7 +379,7 @@
             android:layout_height="61dp"
             android:layout_marginTop="17dp"
             android:textAlignment="center"
-            android:textColor="#000000"
+            android:textColor="?attr/textColor"
             android:textSize="48sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -339,7 +391,7 @@
             android:layout_height="35dp"
             android:layout_marginEnd="20dp"
             android:textAlignment="textEnd"
-            android:textColor="#000000"
+            android:textColor="?attr/textColor"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

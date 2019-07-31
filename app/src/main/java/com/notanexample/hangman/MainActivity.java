@@ -1,12 +1,14 @@
 package com.notanexample.hangman;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,16 +16,13 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ConstraintLayout parentLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        nightMode();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //set background color of activity
-        parentLayout = findViewById(R.id.parentLayout);
-        setBackgroundColor();
 
         //Play Button: Go to ChooseCategoryActivity
         Button playGameButton = (Button) findViewById(R.id.playGameButton);
@@ -84,8 +83,9 @@ public class MainActivity extends AppCompatActivity {
         losesText.setText("Games Lost: "+loses);
     }
 
-    private void setBackgroundColor() {
+    public void nightMode() {
         SharedPreferences settings = getSharedPreferences("UserInfo", 0);
+<<<<<<< Updated upstream
         String color = settings.getString("background", "white");
 
         getWindow().setNavigationBarColor(Color.parseColor("#341f97"));
@@ -113,7 +113,15 @@ public class MainActivity extends AppCompatActivity {
                 parentLayout.setBackgroundColor(Color.parseColor("#48dbfb"));
                 break;
         }
+=======
+        boolean isNightMode = settings.getBoolean("nightmode", false);
+>>>>>>> Stashed changes
 
+        if(isNightMode) {
+            setTheme(R.style.DarkTheme);
+        }
+        else
+            setTheme(R.style.AppTheme);
     }
 
 }

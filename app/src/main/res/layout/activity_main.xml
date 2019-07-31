@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     tools:context=".MainActivity"
+    android:background="?attr/backgroundColor"
     android:id="@+id/parentLayout">
 
     <Button
@@ -16,6 +16,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="100dp"
         android:text="Quit"
+        android:textColor="?attr/textColor"
+        android:background="?attr/cardBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settingsButton" />
@@ -28,6 +30,8 @@
         android:layout_marginTop="33dp"
         android:layout_marginEnd="100dp"
         android:text="Play Game"
+        android:textColor="?attr/textColor"
+        android:background="?attr/cardBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -40,6 +44,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="100dp"
         android:text="Highscores"
+        android:textColor="?attr/textColor"
+        android:background="?attr/cardBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playGameButton" />
@@ -52,6 +58,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="100dp"
         android:text="Settings"
+        android:textColor="?attr/textColor"
+        android:background="?attr/cardBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/highscoreButton" />
@@ -63,7 +71,7 @@
         android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="?attr/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/winsText" />
@@ -76,7 +84,7 @@
         android:layout_marginTop="45dp"
         android:layout_marginEnd="80dp"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="?attr/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quitButton" />
