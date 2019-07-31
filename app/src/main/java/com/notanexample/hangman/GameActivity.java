@@ -35,7 +35,6 @@ public class GameActivity extends AppCompatActivity {
     Timer timer;
     private static DecimalFormat timerFormat = new DecimalFormat("0.00");
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         nightMode();

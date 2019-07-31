@@ -2,10 +2,12 @@ package com.notanexample.hangman;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.view.GestureDetectorCompat;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
@@ -13,6 +15,7 @@ import android.widget.Switch;
 
 public class SettingsActivity extends AppCompatActivity {
     Switch nightModeSwitch;
+    private GestureDetectorCompat gestureDetectorCompat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,10 @@ public class SettingsActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        DetectSwipeGestureListener gestureListener = new DetectSwipeGestureListener();
+        gestureListener.setActivity(this);
+        gestureDetectorCompat = new GestureDetectorCompat(this, gestureListener);
 
         //set night mode on/off
         nightModeSwitch = findViewById(R.id.nightModeSwitch);
@@ -61,6 +68,12 @@ public class SettingsActivity extends AppCompatActivity {
 //        parentLayout = findViewById(R.id.parentLayout);
 //        setBackgroundColor();
 
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        gestureDetectorCompat.onTouchEvent(event);
+        return true;
     }
 
     public void nightMode() {

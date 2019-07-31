@@ -2,6 +2,7 @@ package com.notanexample.hangman;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.GestureDetectorCompat;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,6 +23,7 @@ import java.util.List;
 
 public class ChooseCategoryActivity extends AppCompatActivity {
     Category[] categories;
+    private GestureDetectorCompat gestureDetectorCompat;
 
 
     @Override
@@ -28,6 +31,10 @@ public class ChooseCategoryActivity extends AppCompatActivity {
         nightMode();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_category);
+
+        DetectSwipeGestureListener gestureListener = new DetectSwipeGestureListener();
+        gestureListener.setActivity(this);
+        gestureDetectorCompat = new GestureDetectorCompat(this, gestureListener);
 
         // Setup category spinner
         Spinner categorySpinner = findViewById(R.id.categorySpinner);
@@ -71,6 +78,12 @@ public class ChooseCategoryActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        gestureDetectorCompat.onTouchEvent(event);
+        return true;
     }
 
     public void nightMode() {
