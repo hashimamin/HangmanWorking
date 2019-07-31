@@ -80,11 +80,11 @@ public class DatabaseManager {
     }
 
     String getRandomWord(int categoryId, int difficulty) {
-        String length = "<= 3"; //easy
+        String length = "<= 4"; //easy
         if (difficulty == 2) { //hard
-            length = "> 4";
+            length = "= 5";
         } else if (difficulty == 1) { //normal
-            length = "= 4";
+            length = ">= 6";
         }
         Cursor queryCursor = db.rawQuery("SELECT * FROM Words WHERE categoryId = "+categoryId+" AND length(word) "+length+" ORDER BY RANDOM() LIMIT 1;", null);
 
