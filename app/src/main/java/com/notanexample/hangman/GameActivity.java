@@ -4,6 +4,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +30,7 @@ import android.app.AlertDialog;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,6 +40,12 @@ public class GameActivity extends AppCompatActivity {
     Timer timer;
     private static DecimalFormat timerFormat = new DecimalFormat("0.00");
 
+    SensorManager sensorManager;
+    Sensor proximitySensor;
+    SensorEventListener proximitySensorListener;
+
+    HangmanView hangmanView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         nightMode();
@@ -42,7 +53,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-
+        hangmanView = findViewById(R.id.hangmanView);
 
         // Setup game
         int category = getIntent().getIntExtra("categoryId", 1);
@@ -55,6 +66,8 @@ public class GameActivity extends AppCompatActivity {
             gameState.attempt = savedInstanceState.getInt("attempt");
             gameState.word = savedInstanceState.getString("word");
             gameState.startTime = savedInstanceState.getDouble("startTime");
+
+            //Character[] charArray = (Character[])  sersavedInstanceState.getSerializable("lettersGuessed");
             //Character[] charArray = Arrays.asList(savedInstanceState.getSerializable("lettersGuessed"));
             //for (int i = 0; i < charArray.length; i++) {
 
@@ -88,6 +101,25 @@ public class GameActivity extends AppCompatActivity {
             }
         }, 0, 75);
 
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        if (proximitySensor != null) {
+            proximitySensorListener = new SensorEventListener() {
+                @Override
+                public void onSensorChanged(SensorEvent sensorEvent) {
+                    hangmanView.headSize = (2.0f*sensorEvent.values[0])/10.0f;
+                    hangmanView.invalidate();
+
+                }
+
+                @Override
+                public void onAccuracyChanged(Sensor sensor, int i) {
+                }
+            };
+
+            sensorManager.registerListener(proximitySensorListener,
+                    proximitySensor, 2 * 1000 * 1000);
+        }
     }
 
     @Override
@@ -194,7 +226,6 @@ public class GameActivity extends AppCompatActivity {
                 gameState.attempt++;
 
                 // Update hangman graphic
-                HangmanView hangmanView = findViewById(R.id.hangmanView);
                 hangmanView.setAttempts(gameState.attempt);
 
                     // Game Over: You lose!
@@ -251,6 +282,7 @@ public class GameActivity extends AppCompatActivity {
 
     public void onDestroy() {
         timer.cancel();
+        sensorManager.unregisterListener(proximitySensorListener);
         super.onDestroy();
     }
 

@@ -19,11 +19,14 @@ public class HangmanView extends View {
     Paint paint = new Paint();
     int attempts;
 
+    float headSize;
+
     private void init() {
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.BLACK);
         paint.setStrokeWidth(8);
         setAttempts(0);
+        headSize = 1.0f;
     }
 
     public void setAttempts(int a) {
@@ -58,7 +61,7 @@ public class HangmanView extends View {
         path.addOval(getWidth()*0.2f, getHeight()*0.35f, getWidth()*0.2f + getWidth()*0.6f ,getHeight()*0.43f, Path.Direction.CW);
 
         if (attempts >= 1) {
-            path.addCircle(getWidth() * 0.5f, getHeight() * 0.2f, getWidth() * 0.2f, Path.Direction.CW);
+            path.addCircle(getWidth() * 0.5f, getHeight() * 0.2f, (getWidth() * 0.2f) * headSize, Path.Direction.CW);
             path.moveTo(getWidth() * 0.5f, getHeight() * 0.29f);
             path.lineTo(getWidth() * 0.5f, getHeight() * 0.55f);
         }

@@ -85,6 +85,7 @@
         android:layout_marginTop="16dp"
         android:contentDescription="Hangman"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/hangman_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
