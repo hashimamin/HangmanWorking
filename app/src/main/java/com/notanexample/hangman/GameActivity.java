@@ -175,6 +175,15 @@ public class GameActivity extends AppCompatActivity {
             sensorManager.registerListener(proximitySensorListener,
                     proximitySensor, 2 * 1000 * 1000);
         }
+
+
+        SharedPreferences settings = getSharedPreferences("UserInfo", 0);
+        boolean isNightMode = settings.getBoolean("nightmode", false);
+
+        if(isNightMode) {
+            hangmanView.paint.setColor(Color.WHITE);
+            hangmanView.invalidate();
+        }
     }
 
     @Override
@@ -331,11 +340,6 @@ public class GameActivity extends AppCompatActivity {
 
         if(isNightMode) {
             setTheme(R.style.DarkTheme);
-//            TextView wordTextView = findViewById(R.id.wordText);
-//            wordTextView.setTextColor(Color.WHITE);
-//
-//            TextView timerTextView = findViewById(R.id.timerText);
-//            timerTextView.setTextColor(Color.WHITE);
         }
         else
             setTheme(R.style.AppTheme);
