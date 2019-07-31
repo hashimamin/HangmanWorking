@@ -187,14 +187,20 @@ public class GameActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_quit:
-                Intent intent = new Intent(this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
+                new AlertDialog.Builder(GameActivity.this)
+                        .setMessage("Are you sure you want to quit?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .show();
                 return true;
 
-            case R.id.action_restart:
-                restartActivity();
+            case R.id.action_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
                 return true;
 
             default:
@@ -273,7 +279,14 @@ public class GameActivity extends AppCompatActivity {
 
                                     finish();
                                 }
-                            }).show();
+                            })
+                            .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    finish();
+                                }
+                            })
+                            .show();
                 }
 
             } else {
@@ -318,11 +331,11 @@ public class GameActivity extends AppCompatActivity {
 
         if(isNightMode) {
             setTheme(R.style.DarkTheme);
-            TextView wordTextView = findViewById(R.id.wordText);
-            wordTextView.setTextColor(Color.WHITE);
-
-            TextView timerTextView = findViewById(R.id.timerText);
-            timerTextView.setTextColor(Color.WHITE);
+//            TextView wordTextView = findViewById(R.id.wordText);
+//            wordTextView.setTextColor(Color.WHITE);
+//
+//            TextView timerTextView = findViewById(R.id.timerText);
+//            timerTextView.setTextColor(Color.WHITE);
         }
         else
             setTheme(R.style.AppTheme);

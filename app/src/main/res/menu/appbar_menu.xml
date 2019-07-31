@@ -9,9 +9,9 @@
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/action_restart"
-        android:title="Restart"
-        android:icon="@android:drawable/ic_menu_revert"
+        android:id="@+id/action_settings"
+        android:title="Settings"
+        android:icon="@android:drawable/ic_menu_preferences"
         app:showAsAction="always"/>
 
 </menu>

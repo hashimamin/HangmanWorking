@@ -16,7 +16,6 @@ public class DetectSwipeGestureListener extends GestureDetector.SimpleOnGestureL
     private static int MAX_SWIPE_DISTANCE_X = 1000;
     private static int MAX_SWIPE_DISTANCE_Y = 1000;
 
-    // Source activity that display message in text view.
     private AppCompatActivity activity = null;
 
     public AppCompatActivity getActivity() {
@@ -27,7 +26,7 @@ public class DetectSwipeGestureListener extends GestureDetector.SimpleOnGestureL
         this.activity = activity;
     }
 
-    /* This method is invoked when a swipe gesture happened. */
+
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 
@@ -41,7 +40,7 @@ public class DetectSwipeGestureListener extends GestureDetector.SimpleOnGestureL
         float deltaXAbs = Math.abs(deltaX);
         float deltaYAbs = Math.abs(deltaY);
 
-        // Only when swipe distance between minimal and maximal distance value then we treat it as effective swipe
+
         if((deltaXAbs >= MIN_SWIPE_DISTANCE_X) && (deltaXAbs <= MAX_SWIPE_DISTANCE_X))
         {
             if(deltaX > 0)
