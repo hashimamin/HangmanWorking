@@ -67,12 +67,62 @@ public class GameActivity extends AppCompatActivity {
             gameState.word = savedInstanceState.getString("word");
             gameState.startTime = savedInstanceState.getDouble("startTime");
 
-            //Character[] charArray = (Character[])  sersavedInstanceState.getSerializable("lettersGuessed");
-            //Character[] charArray = Arrays.asList(savedInstanceState.getSerializable("lettersGuessed"));
-            //for (int i = 0; i < charArray.length; i++) {
+            String lettersGuessed = savedInstanceState.getString("lettersGuessed");
 
-                //findViewById(R.id.aButton).setClickable(false);
-            //}
+            for (int i = 0; i < lettersGuessed.length(); i++) {
+                char letter = lettersGuessed.charAt(i);
+                gameState.lettersGuessed.add(new Character(letter));
+
+                Button button = findViewById(R.id.aButton);
+
+                switch (letter) {
+                    case 'A': button = findViewById(R.id.aButton); break;
+                    case 'B': button = findViewById(R.id.bButton); break;
+                    case 'C': button = findViewById(R.id.cButton); break;
+                    case 'D': button = findViewById(R.id.dButton); break;
+                    case 'E': button = findViewById(R.id.eButton); break;
+                    case 'F': button = findViewById(R.id.fButton); break;
+                    case 'G': button = findViewById(R.id.gButton); break;
+                    case 'H': button = findViewById(R.id.hButton); break;
+                    case 'I': button = findViewById(R.id.iButton); break;
+                    case 'J': button = findViewById(R.id.jButton); break;
+                    case 'K': button = findViewById(R.id.kButton); break;
+                    case 'L': button = findViewById(R.id.lButton); break;
+                    case 'M': button = findViewById(R.id.mButton); break;
+                    case 'N': button = findViewById(R.id.nButton); break;
+                    case 'O': button = findViewById(R.id.oButton); break;
+                    case 'P': button = findViewById(R.id.pButton); break;
+                    case 'Q': button = findViewById(R.id.qButton); break;
+                    case 'R': button = findViewById(R.id.rButton); break;
+                    case 'S': button = findViewById(R.id.sButton); break;
+                    case 'T': button = findViewById(R.id.tButton); break;
+                    case 'U': button = findViewById(R.id.uButton); break;
+                    case 'V': button = findViewById(R.id.vButton); break;
+                    case 'W': button = findViewById(R.id.wButton); break;
+                    case 'X': button = findViewById(R.id.xButton); break;
+                    case 'Y': button = findViewById(R.id.yButton); break;
+                    case 'Z': button = findViewById(R.id.zButton); break;
+                }
+
+                boolean foundLetter = false;
+                for (int j = 0; j < gameState.word.length(); j++) {
+                    Character character = gameState.word.charAt(j);
+                    if ((character == letter)) {
+                        foundLetter = true;
+                        break;
+                    }
+                }
+
+                if (foundLetter) {
+                    button.setBackgroundColor(Color.parseColor("#2ecc71"));
+                } else {
+                    button.setBackgroundColor(Color.parseColor("#e74c3c"));
+                }
+                button.setClickable(false);
+            }
+
+            hangmanView.attempts = gameState.attempt;
+            hangmanView.invalidate();
         }
 
         // Set word letters to underlined blanks
@@ -80,7 +130,12 @@ public class GameActivity extends AppCompatActivity {
 
         String html = "";
         for (int i = 0; i < gameState.word.length(); i++) {
-            html = html + blankHTML;
+            char letter = gameState.word.charAt(i);
+            if (gameState.lettersGuessed.contains(letter)) {
+                html = html + "<u>&nbsp;"+letter+"&nbsp;</u>&nbsp;";
+            } else {
+                html = html + blankHTML;
+            }
         }
 
         TextView wordTextView = findViewById(R.id.wordText);
@@ -292,8 +347,7 @@ public class GameActivity extends AppCompatActivity {
         b.putInt("attempt", gameState.attempt);
         b.putString("word", gameState.word);
         b.putDouble("startTime", gameState.startTime);
-
-        b.putSerializable("lettersGuessed", gameState.lettersGuessed.toArray());
+        b.putString("lettersGuessed", gameState.lettersGuessed.toString());
     }
 
 
