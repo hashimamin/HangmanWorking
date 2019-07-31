@@ -20,17 +20,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChooseCategoryActivity extends AppCompatActivity {
-    ConstraintLayout parentLayout;
     Category[] categories;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        nightMode();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_category);
-
-        //set background color of activity
-        parentLayout = findViewById(R.id.parentLayout);
-        setBackgroundColor();
 
         // Setup category spinner
         Spinner categorySpinner = findViewById(R.id.categorySpinner);
@@ -76,24 +73,15 @@ public class ChooseCategoryActivity extends AppCompatActivity {
 
     }
 
-    private void setBackgroundColor() {
+    public void nightMode() {
         SharedPreferences settings = getSharedPreferences("UserInfo", 0);
-        String color = settings.getString("background", "white");
+        boolean isNightMode = settings.getBoolean("nightmode", false);
 
-        switch (color) {
-            case "white":
-                parentLayout.setBackgroundColor(Color.WHITE);
-                break;
-            case "red":
-                parentLayout.setBackgroundColor(Color.RED);
-                break;
-            case "green":
-                parentLayout.setBackgroundColor(Color.GREEN);
-                break;
-            case "blue":
-                parentLayout.setBackgroundColor(Color.BLUE);
-                break;
+        if(isNightMode) {
+            setTheme(R.style.DarkTheme);
         }
+        else
+            setTheme(R.style.AppTheme);
 
     }
 

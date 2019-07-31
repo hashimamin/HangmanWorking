@@ -7,17 +7,23 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.GestureDetectorCompat;
 
 import android.text.Html;
 import android.text.InputType;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.app.AlertDialog;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.Timer;
@@ -28,12 +34,14 @@ public class GameActivity extends AppCompatActivity {
     Timer timer;
     private static DecimalFormat timerFormat = new DecimalFormat("0.00");
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         nightMode();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
 
         // Setup game
         int category = getIntent().getIntExtra("categoryId", 1);
@@ -67,7 +75,6 @@ public class GameActivity extends AppCompatActivity {
                 });
             }
         }, 0, 75);
-
 
     }
 
@@ -224,4 +231,8 @@ public class GameActivity extends AppCompatActivity {
     public void restartActivity() {
         Restart.restartApp(this);
     }
+
+
+
+
 }

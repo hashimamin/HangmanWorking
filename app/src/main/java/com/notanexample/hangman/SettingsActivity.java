@@ -65,30 +65,10 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void nightMode() {
         SharedPreferences settings = getSharedPreferences("UserInfo", 0);
-<<<<<<< Updated upstream
-        String color = settings.getString("background", "white");
-
-        getWindow().setNavigationBarColor(Color.parseColor("#341f97"));
-
-        switch (color) {
-            case "white":
-                parentLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                break;
-            case "red":
-                parentLayout.setBackgroundColor(Color.parseColor("#ff6b6b"));
-                break;
-            case "green":
-                parentLayout.setBackgroundColor(Color.parseColor("#1dd1a1"));
-                break;
-            case "blue":
-                parentLayout.setBackgroundColor(Color.parseColor("#48dbfb"));
-                break;
-=======
         boolean isNightMode = settings.getBoolean("nightmode", false);
 
         if(isNightMode) {
             setTheme(R.style.DarkTheme);
->>>>>>> Stashed changes
         }
         else
             setTheme(R.style.AppTheme);
