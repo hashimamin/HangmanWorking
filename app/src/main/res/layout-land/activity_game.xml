@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.notanexample.hangman.HangmanView
+        android:id="@+id/hangmanView"
+        android:layout_width="222dp"
+        android:layout_height="405dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/aButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="A"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/gButton"
+        app:layout_constraintEnd_toStartOf="@+id/bButton" />
+
+    <Button
+        android:id="@+id/bButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="B"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/hButton"
+        app:layout_constraintEnd_toStartOf="@+id/cButton" />
+
+    <Button
+        android:id="@+id/cButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="C"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/iButton"
+        app:layout_constraintEnd_toStartOf="@+id/dButton" />
+
+    <Button
+        android:id="@+id/dButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="D"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/jButton"
+        app:layout_constraintEnd_toStartOf="@+id/eButton" />
+
+    <Button
+        android:id="@+id/eButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="E"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/kButton"
+        app:layout_constraintEnd_toStartOf="@+id/fButton" />
+
+    <Button
+        android:id="@+id/fButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="110dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="F"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/lButton"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/gButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="G"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/mButton"
+        app:layout_constraintEnd_toStartOf="@+id/hButton" />
+
+    <Button
+        android:id="@+id/hButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="H"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/nButton"
+        app:layout_constraintEnd_toStartOf="@+id/iButton" />
+
+    <Button
+        android:id="@+id/iButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="I"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/oButton"
+        app:layout_constraintEnd_toStartOf="@+id/jButton" />
+
+    <Button
+        android:id="@+id/jButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="J"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/pButton"
+        app:layout_constraintEnd_toStartOf="@+id/kButton" />
+
+    <Button
+        android:id="@+id/kButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="K"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/qButton"
+        app:layout_constraintEnd_toStartOf="@+id/lButton" />
+
+    <Button
+        android:id="@+id/lButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="110dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="L"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/rButton"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/mButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="M"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/tButton"
+        app:layout_constraintEnd_toStartOf="@+id/nButton" />
+
+    <Button
+        android:id="@+id/nButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="N"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/uButton"
+        app:layout_constraintEnd_toStartOf="@+id/oButton" />
+
+    <Button
+        android:id="@+id/oButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="O"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/vButton"
+        app:layout_constraintEnd_toStartOf="@+id/pButton" />
+
+    <Button
+        android:id="@+id/pButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="P"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/wButton"
+        app:layout_constraintEnd_toStartOf="@+id/qButton" />
+
+    <Button
+        android:id="@+id/qButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="Q"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/xButton"
+        app:layout_constraintEnd_toStartOf="@+id/rButton" />
+
+    <Button
+        android:id="@+id/rButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="R"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/yButton"
+        app:layout_constraintEnd_toStartOf="@+id/sButton" />
+
+    <Button
+        android:id="@+id/sButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="50dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="S"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/zButton"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/tButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="20dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="T"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/uButton" />
+
+    <Button
+        android:id="@+id/uButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="20dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="U"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vButton" />
+
+    <Button
+        android:id="@+id/vButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="20dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="V"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/wButton" />
+
+    <Button
+        android:id="@+id/wButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="20dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="W"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/xButton" />
+
+    <Button
+        android:id="@+id/xButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="20dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="X"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/yButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="20dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="Y"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/zButton" />
+
+    <Button
+        android:id="@+id/zButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="20dp"
+        android:background="?attr/cardBackground"
+        android:onClick="letterClick"
+        android:text="Z"
+        android:textColor="?attr/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/wordText"
+        android:layout_width="416dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="17dp"
+        android:textAlignment="center"
+        android:textColor="?attr/textColor"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timerText" />
+
+        <TextView
+            android:id="@+id/timerText"
+            android:layout_width="218dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="20dp"
+            android:textAlignment="textEnd"
+            android:textColor="?attr/textColor"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
